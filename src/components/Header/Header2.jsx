@@ -81,7 +81,7 @@ const Header2 = () => {
         </MenuItem>
       </Menu>
     </div>
-    <Links />
+    {Computer&& (<Links />)}
     { mobile && (<IconButton>
       <MenuIcon sx={{fontSize:"25px"}}/>
     </IconButton >)}
