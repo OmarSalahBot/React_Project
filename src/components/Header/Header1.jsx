@@ -77,6 +77,8 @@ const Header1 = () => {
           <Search sx={{
             border:`solid black 2px`,
             borderRadius:"50px",
+            height:"50px",
+            marginTop:"10px"
           }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -135,7 +137,7 @@ const Header1 = () => {
             </IconButton>
             <IconButton>
             <PersonIcon sx={{
-            fontSize:"30px"
+            fontSize:"30px",
           }}/>
             </IconButton>
           </div>

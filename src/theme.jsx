@@ -8,6 +8,9 @@ export const getDesignTokens = (mode) => ({
     ...(mode === "light"
       ? {
           // palette values for light mode
+          BackGroundColor:{
+            main:"#ececec"
+          },
           MyColor:{
             main:"#F6F9FC"
           },
@@ -24,6 +27,9 @@ export const getDesignTokens = (mode) => ({
         }
       : {
           // palette values for dark mode
+          BackGroundColor:{
+            main:"black"
+          },
           MyColor:{
             main:"#252b32"
           },

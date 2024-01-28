@@ -24,7 +24,7 @@ const Header2 = () => {
   const mobile = useMediaQuery('(max-width:600px)');
   const Computer = useMediaQuery('(min-width:601px)');
     return (
-        <Container sx={{marginTop:"70px",display:"flex",justifyContent:"space-between",flexDirection: "row"}}>
+        <Container sx={{marginTop:"40px",display:"flex",justifyContent:"space-between",flexDirection: "row"}}>
             <div>
       <Button sx={{width:222,bgcolor: theme.
 // @ts-ignore
@@ -81,7 +81,14 @@ const Header2 = () => {
         </MenuItem>
       </Menu>
     </div>
-    {Computer&& (<Links />)}
+    {Computer&& (<div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:"5px"}}>
+      <Links title={"Home"}/>
+      <Links title={"Mega Menu"}/>
+      <Links title={"Full Screen View"}/>
+      <Links title={"Pages"}/>
+      <Links title={"User Account"}/>
+      <Links title={"Vendor Account"}/>
+    </div>)}
     { mobile && (<IconButton>
       <MenuIcon sx={{fontSize:"25px"}}/>
     </IconButton >)}
