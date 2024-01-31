@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <div style={{ backgroundColor: `${theme.
 // @ts-ignore
-    palette.BackGroundColor.main}`, margin: "30px 0px" }}>
+    palette.BackGroundColor.main}`, margin: "30px 0px 10px 0px" }}>
       <Container
         sx={{
           display: "flex",
