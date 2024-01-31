@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from '@emotion/react';
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,11 +10,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import "./Hero.css";
+const sliderInfo = [
+  {text:"MEN" ,link:"src/Images/banner-15.jpg",sale:"30%"},
+  {text:"WOMEN" ,link:"src/Images/banner-25.jpg",sale:"35%"}
+]
 
 // import required modules
 import { Pagination } from "swiper/modules";
 const Hero = () => {
   const theme = useTheme();
+  const Computer = useMediaQuery('(min-width:900px)');
   return (
     <div style={{ backgroundColor: `${theme.
 // @ts-ignore
@@ -27,9 +32,11 @@ const Hero = () => {
           position: "relative",
         }}
       >
-        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-          <SwiperSlide>
-            <img src="src/Images/banner-15.jpg" alt="" />
+        <Swiper loop={true} pagination={true} modules={[Pagination]} className="mySwiper">
+          {sliderInfo.map((item)=>{
+            return(
+              <SwiperSlide key={item.link}>
+            <img src={item.link} alt="" />
             <Typography
               sx={{
                 position: "absolute",
@@ -58,7 +65,7 @@ const Hero = () => {
                   marginTop: "-10px",
                 }}
               >
-                MEN
+                {item.text}
               </p>
               <p
                 style={{
@@ -68,7 +75,7 @@ const Hero = () => {
                   color:"#202020fd"
                 }}
               >
-                SALE UP TO <span style={{ color: "#c00000b7" }}>30% OFF</span>
+                SALE UP TO <span style={{ color: "#c00000b7" }}>{item.sale} OFF</span>
               </p>
               <p style={{ textAlign: "start" ,color:"#202020fd" }}>
                 Get Free Shipping on orders over $99.00
@@ -91,71 +98,10 @@ const Hero = () => {
               </Link>
             </Typography>
           </SwiperSlide>
-          <SwiperSlide>
-            <img src="src/Images/banner-25.jpg" alt="" />
-            <Typography
-              sx={{
-                position: "absolute",
-                top: "15%",
-                left: "7%",
-                zIndex: "1",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: "30px",
-                  color: "#4b4b4bfd",
-                  pointerEvents: "none",
-                  textAlign: "start",
-                }}
-              >
-                LIFESTYLE COLLECTION
-              </p>
-              <p
-                style={{
-                  fontSize: "60px",
-                  color: "#202020fd",
-                  pointerEvents: "none",
-                  textAlign: "start",
-                  fontWeight: "bold",
-                  marginTop: "-10px",
-                }}
-              >
-                WOMAN
-              </p>
-              <p
-                style={{
-                  textAlign: "start",
-                  fontSize: "30px",
-                  fontWeight: "500",
-                  color:"#202020fd"
-                }}
-              >
-                SALE UP TO <span style={{ color: "#c00000b7" }}>35% OFF</span>
-              </p>
-              <p style={{ textAlign: "start",color:"#202020fd" }}>
-                Get Free Shipping on orders over $99.00
-              </p>
-              <Link
-                className="d-flex"
-                to={"/google"}
-                style={{
-                  marginTop: "40px",
-                  fontSize: "13px",
-                  color: "white",
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  backgroundColor: "#181818",
-                  padding: "12px 15px",
-                  width: "100px",
-                }}
-              >
-                Shop Now
-              </Link>
-            </Typography>
-          </SwiperSlide>
+            );
+          })}
         </Swiper>
-        <div
+        {Computer&&(<div
           className="PC-Shoes"
           style={{ minWidth: "26.9%", display: "flex", flexDirection: "column",justifyContent:"space-between" }}
         >
@@ -239,7 +185,7 @@ const Hero = () => {
               </Link>
             </Typography>
           </Box>
-        </div>
+        </div>)}
       </Container>
     </div>
   );
