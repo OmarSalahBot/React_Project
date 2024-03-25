@@ -11,6 +11,7 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import BookIcon from '@mui/icons-material/Book';
 import MenuIcon from '@mui/icons-material/Menu';
+
 const Header2 = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -21,8 +22,8 @@ const Header2 = () => {
       setAnchorEl(null);
     };
   const theme = useTheme();
-  const mobile = useMediaQuery('(max-width:600px)');
-  const Computer = useMediaQuery('(min-width:601px)');
+  const laptop = useMediaQuery('(max-width:900px)');
+  const Computer = useMediaQuery('(min-width:901px)');
     return (
         <Container sx={{marginTop:"40px",display:"flex",justifyContent:"space-between",flexDirection: "row"}}>
             <div>
@@ -81,17 +82,17 @@ const Header2 = () => {
         </MenuItem>
       </Menu>
     </div>
-    {Computer&& (<div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:"5px"}}>
+    {Computer? <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:"5px"}}>
       <Links title={"Home"}/>
       <Links title={"Mega Menu"}/>
       <Links title={"Full Screen View"}/>
       <Links title={"Pages"}/>
       <Links title={"User Account"}/>
       <Links title={"Vendor Account"}/>
-    </div>)}
-    { mobile && (<IconButton>
+    </div>:null}
+    {laptop ? <IconButton>
       <MenuIcon sx={{fontSize:"25px"}}/>
-    </IconButton >)}
+    </IconButton >:null}
         </Container>
     );
 }

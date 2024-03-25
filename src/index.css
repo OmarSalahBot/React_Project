@@ -1,5 +1,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -20,4 +22,7 @@
 }
 .border{
   border: solid #dddddd8a 3px;
+}
+.show {
+  right:30px !important;
 }

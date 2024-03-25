@@ -16,7 +16,7 @@ const IconSection = () => {
         }}
       >
         <MyBox
-          Icon={<ElectricBoltIcon sx={{ fontSize: "40px" }} />}
+          Icon={<ElectricBoltIcon sx={{ fontSize: "40px"}} />}
           head={"Fast Delivery"}
           text={"Start From $10"}
         />
